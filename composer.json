@@ -1,0 +1,17 @@
+{
+    "name": "rivanildojr/store",
+    "description": "Loja em PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "core\\": "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rivanildo Júnior dos Santos Andrade",
+            "email": "rivanildo_junior7@hotmail.com"
+        }
+    ],
+    "require": {}
+}
