@@ -7,5 +7,5 @@
     define("MYSQL_HOST", "localhost");
     define("MYSQL_DATABASE", "store");
     define("MYSQL_USER", "root");
-    define("MYSQL_PASS", "");
+    define("MYSQL_PASS", "rivanildojr");
     define("MYSQL_CHARSET", "utf8mb4");

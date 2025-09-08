@@ -1,8 +1,5 @@
 <?php
 
-    use core\classes\Database\Database;
-    use core\classes\Helpers\Helpers;
-
     // abrir a sessão
     session_start();
 
@@ -21,9 +18,5 @@
     // Carregar as classes
     require_once('../vendor/autoload.php');
 
-    $database = new Database();
-    $helpers = new Helpers();
-
-    $helpers->teste();
-
-    echo 'Hello World!';
+    // Carregar o sistema de rotas
+    require_once('../core/routes.php');
