@@ -2,6 +2,7 @@
 
     namespace core\classes\Database;
 
+    use Exception;
     use PDO;
     use PDOException;
 
@@ -41,6 +42,10 @@
          * Função de seleção de dados
          */
         public function select($sql, $params = null) {
+            if (!preg_match('/^SELECT/i', $sql)) {
+                throw new Exception('Base de dados - Não é uma instrução SELECT.');
+            }
+
             $this->connect();
 
             $result = null;
@@ -58,5 +63,77 @@
             }
 
             return $result;
+        }
+
+        public function insert($sql, $params = null) {
+            if (!preg_match('/^INSERT/i', $sql)) {
+                throw new Exception('Base de dados - Não é uma instrução INSERT.');
+            }
+
+            $this->connect();
+
+            try {
+                $stmt = $this->connection->prepare($sql);
+
+                !empty($params) ? $stmt->execute($params) : $stmt->execute();
+            } catch (PDOException $e) {
+                return false;
+            } finally {
+                $this->disconnect();
+            }
+        }
+
+        public function update($sql, $params = null) {
+            if (!preg_match('/^UPDATE/i', $sql)) {
+                throw new Exception('Base de dados - Não é uma instrução UPDATE.');
+            }
+
+            $this->connect();
+
+            try {
+                $stmt = $this->connection->prepare($sql);
+
+                !empty($params) ? $stmt->execute($params) : $stmt->execute();
+            } catch (PDOException $e) {
+                return false;
+            } finally {
+                $this->disconnect();
+            }
+        }
+
+        public function delete($sql, $params = null) {
+            if (!preg_match('/^DELETE/i', $sql)) {
+                throw new Exception('Base de dados - Não é uma instrução DELETE.');
+            }
+
+            $this->connect();
+
+            try {
+                $stmt = $this->connection->prepare($sql);
+
+                !empty($params) ? $stmt->execute($params) : $stmt->execute();
+            } catch (PDOException $e) {
+                return false;
+            } finally {
+                $this->disconnect();
+            }
+        }
+
+        public function statement($sql, $params = null) {
+            if (preg_match('/^(SELECT|INSERT|UPDATE|DELETE)/i', $sql)) {
+                throw new Exception('Base de dados - Não é uma instrução válida.');
+            }
+
+            $this->connect();
+
+            try {
+                $stmt = $this->connection->prepare($sql);
+
+                !empty($params) ? $stmt->execute($params) : $stmt->execute();
+            } catch (PDOException $e) {
+                return false;
+            } finally {
+                $this->disconnect();
+            }
         }
     }
