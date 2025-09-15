@@ -12,9 +12,6 @@
      *  - mostrar o backoffice, etc
      */
 
-    // Carregar o config
-    require_once('../config.php');
-
     // Carregar as classes
     require_once('../vendor/autoload.php');
 

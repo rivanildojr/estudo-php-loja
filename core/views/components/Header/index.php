@@ -1,16 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="container-fluid"></div>
+    <div class="row">
+        <div class="col-6 p-3">
+            <?= APP_NAME ?>
+        </div>
 
-        <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/app.css">
+        <div class="col-6 text-end p-3">
+            <a 
+                href=""
+            >
+                Item 1
+            </a>
 
-        <title>
-            Loja
-        </title>
-    </head>
+            <a 
+                href=""
+            >
+                Item 2
+            </a>
 
-    <body>
+            <a 
+                href=""
+            >
+                Item 3
+            </a>
+
+            <a 
+                href=""
+            >
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            <span class="badge bg-warning">
+                10
+            </span>
+        </div>
+    </div>
+</div>
